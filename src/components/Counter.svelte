@@ -22,7 +22,7 @@
     <div
       id="counter"
       class="counter"
-      transition:fade={{ duration: 2000 }}
+      in:fade={{ duration: 2000 }}
       on:introstart={smoothScroll}>
       <button on:click={subtract}>-</button>
       <pre>{count}</pre>
