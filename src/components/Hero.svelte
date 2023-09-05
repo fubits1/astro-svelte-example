@@ -1,20 +1,20 @@
 <script>
   // export let state;
-  import { state } from "../state.js";
+  import { state } from '../state.js';
   function updateState() {
     $state = !$state;
     if (!$state) {
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   }
 </script>
 
 <section>
-  <h1><slot /></h1>
-  <button on:click={updateState}>{$state ? "Close" : "Open"}</button>
+  <slot />
+  <button on:click={updateState}>{$state ? 'Close' : 'Open'}</button>
 </section>
 
 <style>
