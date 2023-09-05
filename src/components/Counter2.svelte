@@ -9,20 +9,13 @@
   function subtract() {
     count -= 1;
   }
-
-  function smoothScroll() {
-    document.getElementById('counter').scrollIntoView({ behavior: 'smooth' });
-  }
 </script>
 
 <section>
-  <div id="counter" class="counter" in:fade={{ duration: 2000 }}>
+  <div id="counter" class="counter" in:fade={{ duration: 600 }}>
     <button on:click={subtract}>-</button>
     <pre>{count}</pre>
     <button on:click={add}>+</button>
-  </div>
-  <div class="message" transition:fade>
-    <h2><slot /></h2>
   </div>
 </section>
 
