@@ -1,0 +1,66 @@
+---
+// Component Imports
+import Counter from '@components/Counter2.svelte';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      html,
+      body {
+        font-family: system-ui;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <button>lazy-load component</button>
+
+      <div class="lazyload">
+        <Counter client:visible />
+      </div>
+
+      <a href="/">back</a>
+    </main>
+  </body>
+</html>
+
+<script>
+  const button = document.querySelector('button');
+  button?.addEventListener('click', () => {
+    const lazyload = document.querySelector('.lazyload');
+    lazyload?.classList.add('loaded');
+  });
+</script>
+
+<style>
+  .lazyload {
+    visibility: hidden;
+  }
+
+  .lazyload.loaded {
+    visibility: visible;
+  }
+
+  main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>
