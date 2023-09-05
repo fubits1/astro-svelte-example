@@ -30,7 +30,10 @@ import Counter from '@components/Counter.svelte';
       <Hero client:visible>
         <div class="content">
           <h1>Hi <a href="https://astro.build/">Astro</a></h1>
-          <div><a href="/lazyload">Lazyload A</a><a href="/lazyload2">Lazyload B</a></div>
+          <div>
+            <a href="/lazyload">Lazyload A</a><a href="/lazyload2">Lazyload B</a><a
+              href="/lazyload2">Lazyload C</a>
+          </div>
         </div>
       </Hero>
       <Counter client:idle>Hello, <a href="https://svelte.dev/">Svelte!</a></Counter>
