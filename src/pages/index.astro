@@ -1,39 +1,34 @@
 ---
 // Component Imports
-import Hero from '../sections/Hero.svelte';
-import Counter from '../components/Counter.svelte';
-
+import Hero from '@components/Hero.svelte';
+import Counter from '@components/Counter.svelte';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      html,
+      body {
+        font-family: system-ui;
+        margin: 0;
+      }
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <style>
-    html,
-    body {
-      font-family: system-ui;
-      margin: 0;
-    }
+      body {
+        background: white;
+      }
+    </style>
+  </head>
 
-    body {
-      background: white;
-    }
-  </style>
-</head>
-
-<body>
-  <main>
-    <Hero client:visible> Hi <a href="https://astro.build/">Astro</a>
-    </Hero>
-    <Counter client:idle> Hello, <a href="https://svelte.dev/">Svelte!</a>
-    </Counter>
-  </main>
-</body>
-
+  <body>
+    <main>
+      <Hero client:visible>Hi <a href="https://astro.build/">Astro</a></Hero>
+      <Counter client:idle>Hello, <a href="https://svelte.dev/">Svelte!</a></Counter>
+    </main>
+  </body>
 </html>
