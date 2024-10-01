@@ -1,11 +1,15 @@
-let _state = $state(false);
+const _is_open = () => {
+  let _state = $state(false);
 
-export const is_open = {
-  get value() {
-    return _state.value;
-  },
+  return {
+    get value() {
+      return _state;
+    },
 
-  set value(value) {
-    _state.value = value;
-  },
+    set value(value) {
+      _state = value;
+    },
+  };
 };
+
+export const is_open = _is_open();
