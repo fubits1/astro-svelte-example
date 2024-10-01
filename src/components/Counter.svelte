@@ -1,8 +1,10 @@
 <script>
-  import { state } from "../state.js";
+  import { is_open } from "../state.svelte.js";
   import { fade } from "svelte/transition";
-  $: open = $state;
-  let count = 0;
+  /** @type {{children?: import('svelte').Snippet}} */
+  let { children } = $props();
+  let open = $derived(is_open.value);
+  let count = $state(0);
 
   function add() {
     count += 1;
@@ -23,13 +25,13 @@
       id="counter"
       class="counter"
       in:fade={{ duration: 2000 }}
-      on:introstart={smoothScroll}>
-      <button on:click={subtract}>-</button>
+      onintrostart={smoothScroll}>
+      <button onclick={subtract}>-</button>
       <pre>{count}</pre>
-      <button on:click={add}>+</button>
+      <button onclick={add}>+</button>
     </div>
     <div class="message" transition:fade>
-      <h2><slot /></h2>
+      <h2>{@render children?.()}</h2>
     </div>
   </section>
 {/if}

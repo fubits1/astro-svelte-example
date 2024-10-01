@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
-  let count = 0;
+  let count = $state(0);
 
   function add() {
     count += 1;
@@ -13,9 +13,9 @@
 
 <section>
   <div id="counter" class="counter" in:fade={{ duration: 600 }}>
-    <button on:click={subtract}>-</button>
+    <button onclick={subtract}>-</button>
     <pre>{count}</pre>
-    <button on:click={add}>+</button>
+    <button onclick={add}>+</button>
   </div>
 </section>
 

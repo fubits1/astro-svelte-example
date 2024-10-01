@@ -35,10 +35,11 @@ import Counter from '@components/Counter2.svelte';
 </html>
 
 <script>
+  import { mount } from 'svelte';
   const button = document.querySelector('button');
   button?.addEventListener('click', () => {
     import('@components/Counter2.svelte').then(({ default: Counter }) => {
-      const counter = new Counter({
+      const counter = mount(Counter, {
         target: document.querySelector('.container'),
         props: {
           visible: true,

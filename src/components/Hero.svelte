@@ -1,20 +1,22 @@
 <script>
   // export let state;
-  import { state } from '../state.js';
+  import { is_open } from '../state.svelte.js';
+  /** @type {{children?: import('svelte').Snippet}} */
+  let { children } = $props();
   function updateState() {
-    $state = !$state;
-    if (!$state) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+    // is_open.set(!is_open.get());
+    // if (is_open.get()) {
+    //   window.scrollTo({
+    //     top: 0,
+    //     behavior: 'smooth',
+    //   });
+    // }
   }
 </script>
 
 <section>
-  <slot />
-  <button on:click={updateState}>{$state ? 'Close' : 'Open'}</button>
+  {@render children?.()}
+  <!-- <button onclick={updateState}>{is_open.get() ? 'Close' : 'Open'}</button> -->
 </section>
 
 <style>
