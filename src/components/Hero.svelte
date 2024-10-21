@@ -36,11 +36,6 @@
     position: relative;
   }
 
-  h1 {
-    position: sticky;
-    top: 1rem;
-  }
-
   button {
     position: absolute;
     bottom: 10%;
